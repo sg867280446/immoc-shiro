@@ -17,6 +17,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-spring:1.4.0" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.4.0" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.1" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.4.0" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-lang:1.4.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />

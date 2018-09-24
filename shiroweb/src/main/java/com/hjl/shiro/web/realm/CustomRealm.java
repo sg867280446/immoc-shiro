@@ -30,7 +30,7 @@ public class CustomRealm extends AuthorizingRealm{
         roleMap.put("hjl",roleSet);
 
         Set<String> permSet = new HashSet<>();
-        permSet.add("user:add");
+        permSet.add("user:login");
         permMap.put("hjl",permSet);
     }
 
