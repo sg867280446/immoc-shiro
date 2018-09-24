@@ -50,6 +50,22 @@ public class UserController {
         return "拥有user角色";
     }
 
+    @RequestMapping(value = "/testRole2",produces = "application/json;charset=utf-8")
+    public @ResponseBody String testRole2(){
+        return "拥有admin角色";
+    }
+
+    @RequestMapping(value = "/testRole3",produces = "application/json;charset=utf-8")
+    public @ResponseBody String testRole3(){
+        return "拥有admin与user角色";
+    }
+
+    @RequestMapping(value = "/testRole4",produces = "application/json;charset=utf-8")
+    public @ResponseBody String testRole4(){
+        return "拥有admin或user角色";
+    }
+
+
     @RequiresPermissions("user:login")
     @RequestMapping(value = "/testPermissions",produces = "application/json;charset=utf-8")
     public @ResponseBody String testPerm(){

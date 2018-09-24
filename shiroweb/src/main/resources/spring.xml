@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd"
+
+>
 
 
     <bean id = "realm" class="com.hjl.shiro.web.realm.CustomRealm">
@@ -18,13 +26,34 @@
         <property name="loginUrl" value="login.html"/>
         <property name="unauthorizedUrl" value="403.html"/>
         <property name="filterChainDefinitions">
+            <!--
+            anon,authBasic,authc,user,logout
+            perms,roles,ssl,port
+            -->
             <value>
                 /login.html = anon
                 /sublogin = anon
+
+                /testRole2 = roles["admin"]
+                <!--需要admin与user两个角色-->
+                /testRole3 = roles["admin","user"]
+
+                <!--需要admin或user两个角色-->
+                <!--/testRole4 = rolesOr["admin","user"]-->
+
+                <!--必须放在最后-->
                 /* = authc
             </value>
         </property>
+        <property name="filters">
+            <util:map>
+                <entry key = "rolesOr" value-ref="rolesFilter"/>
+            </util:map>
+        </property>
+
     </bean>
+
+    <bean id = "rolesFilter" class = "com.hjl.shiro.web.Filter.RolesOrFilter"/>
 
     <bean id = "hashedCredentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
         <property name="hashAlgorithmName" value="md5"/>
