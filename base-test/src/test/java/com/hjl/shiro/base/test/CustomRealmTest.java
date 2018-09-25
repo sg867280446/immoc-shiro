@@ -37,8 +37,9 @@ public class CustomRealmTest {
 
 
     public static void main(String[] args) {
-        Md5Hash md5Hash = new Md5Hash("123","huang");
-        System.out.println(md5Hash.toString());
+//        Md5Hash md5Hash = new Md5Hash("123","huang");
+//        System.out.println(md5Hash.toString());
+        System.out.println(1/2);
     }
 
 }

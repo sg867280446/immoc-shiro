@@ -19,6 +19,7 @@
 
     <bean id = "securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="realm"/>
+        <property name="sessionManager" ref="sessionManager"/>
     </bean>
 
     <bean id = "shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -57,6 +58,14 @@
 
     <bean id = "hashedCredentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
         <property name="hashAlgorithmName" value="md5"/>
+    </bean>
+
+
+
+    <bean id = "sessionDao" class="com.hjl.shiro.web.session.SessionDao"/>
+
+    <bean id = "sessionManager" class="com.hjl.shiro.web.session.CustomSessionManager">
+        <property name="sessionDAO" ref="sessionDao"/>
     </bean>
 
 
